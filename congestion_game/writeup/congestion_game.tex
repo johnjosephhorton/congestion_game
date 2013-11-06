@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+
+\usepackage{booktabs}
+\usepackage{dcolumn} 
+\usepackage{epstopdf}
+\usepackage{fourier}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{longtable} 
+\usepackage{natbib}
+\usepackage{rotating}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{algorithmic} 
+\usepackage{algorithm2e}
+
+\hypersetup{
+  colorlinks = TRUE,
+  citecolor=blue,
+  linkcolor=red,
+  urlcolor=black
+}
+
+\begin{document} 
+
+\title{How Naive Players Play Empirical Congestion Games} 
+
+\date{\today}
+
+\author{ John J. Horton \\ NYU Stern \footnote{ Author contact information, datasets and code are currently or will be available at \href{http://www.john-joseph-horton.com/}{http://www.john-joseph-horton.com/}. } }
+\maketitle
+
+\begin{abstract}
+\noindent  I propose a simple congestion game and compare player responses to the Nash Equilibria for that game to actual choices. 
+I also compare actual choices to the empirical best response, given how other players play.  \newline
+\noindent JEL J01, J24, J3
+\end{abstract} 
+
+\section{Introduction}
+
+Many phenomena can be modeled as a congestion game. 
+A congestion game is one with defined players and resources and the payoff to an individual depends on how many other players also choose that resources. 
+The decision to take a particular road, go to a particular park or restaurant, sending an article to a journal etc. are congestion games. 
+One particularly important congestion game is the decision about which job opening to apply to. 
+
+\section{Game Description} 
+In this paper, I discuss a simple discrete congestion game: 
+
+\begin{itemize}
+\item There are $n$ players 
+\item There are $I$ objects, each with a payoff of $w_i$. 
+\item For each object, a winner is selected from the applicants. If an applicant wins, they are awarded $w_i$. 
+\end{itemize} 
+
+\subsection{Strategy} 
+Each worker pursues a mixed strategy equilibrium that is a discrete pdf over the objects. 
+For each object, their probability of application is a function of $w_i$. 
+In equilibrium, the expectation over each the objects that are applied to with some positive probability must be the same. 
+
+If there are $n$ players, each playing $p(w_i)$ for that object, the count of applications to each object is a binomial random variable, $B(p(w_i), n - 1)$.
+Conditional upon applying, a worker's probability of winning is $\mathbf{E}[\frac{1}{1 + B(p(w_i), n - 1)}]$.  
+
+\section{Experimental Design} 
+I ran a hypothetical congestion game on MTurk, with $I = 5$. 
+
+\begin{figure} 
+\centering 
+\caption{Game interface} 
+\begin{minipage}{0.85 \linewidth}
+\includegraphics[width = \linewidth]{./images/HIT_interface.png}
+\end{minipage} 
+\end{figure}  
+
+\cite{smith1999wealth} had some great ideas! 
+
+
+\section{Results} 
+
+\section{Conclusion} 
+
+
+\bibliographystyle{aer}
+\bibliography{congestion_game.bib}
+
+\end{document} 
